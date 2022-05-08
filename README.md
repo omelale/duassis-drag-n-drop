@@ -1,8 +1,6 @@
-# Getting Started with Create React App
+#  Drag and drop functionality for the Duassis app 
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
-
-## Available Scripts
+## This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
 
 In the project directory, you can run:
 
