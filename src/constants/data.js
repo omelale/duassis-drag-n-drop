@@ -44,11 +44,6 @@ const players = [
         lastName: 'B',
     },
     {
-        id: 8,
-        name: 'Ketjon',
-        lastName: 'F',
-    },
-    {
         id: 9,
         name: 'Aldo',
         lastName: 'I',
@@ -65,8 +60,10 @@ const players = [
     },
     {
         id: 12,
-        name: 'Genti',
-        lastName: 'S',
+        name: 'Ketjon',
+        lastName: 'F',
     },
     
 ];
+
+export default { teams, playerPerTeam, players}
