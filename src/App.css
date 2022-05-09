@@ -1,14 +1,21 @@
-
+.App{padding:1.4rem}
 .App-link {
   color: #61dafb;
 }
 
-.players {
+#players {
   list-style: none;
   padding-left: 0;
+  background-color: #fff;
+  padding:1rem;
+  border-radius:7px;
+  border: 2px solid #d0d0d0;
+  max-width:fit-content;
+  min-width:25%
 }
+#players.isDraggingOver{background-color: #d7f2d7}
 
-.players li {
+#players li {
   display: flex;
   align-items: center;
   border: solid 2px #d0d0d0;
@@ -17,8 +24,9 @@
   margin-bottom: 1em;
   background-color: aliceblue;
 }
+#players li.dragging{background-color:rgba(176, 176, 189, 0.473)}
 
-.players p {
+#players p {
   max-width: none;
   font-weight: bold;
   margin: 0;

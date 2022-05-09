@@ -22,13 +22,14 @@ function App() {
         <h1>Drag and drop the player into the team you wish</h1>
         <DragDropContext onDragEnd={handleOnDragEnd}>
           <Droppable droppableId="players">
-            {(provided) => (
-              <ul className="players" {...provided.droppableProps} ref={provided.innerRef}>
+            {(provided, snapshot) => (
+              <ul id="players" {...provided.droppableProps} ref={provided.innerRef} isDraggingOver={snapshot.isDraggingOver} className={snapshot.isDraggingOver ? 'isDraggingOver' : ''} >
+                <h3>Available players</h3>
                 {players.map(({ id, name, lastName }, index) => {
                   return (
                     <Draggable key={id} draggableId={id.toString()} index={index}>
-                      {(provided) => (
-                        <li ref={provided.innerRef} {...provided.draggableProps} {...provided.dragHandleProps}>
+                      {(provided, snapshot) => (
+                        <li ref={provided.innerRef} className={snapshot.isDragging ? 'dragging' : ''} {...provided.draggableProps} {...provided.dragHandleProps} isDragging={snapshot.isDragging} >
                           <p>
                             {name + ' ' + lastName}
                           </p>
