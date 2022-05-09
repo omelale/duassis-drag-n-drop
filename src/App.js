@@ -7,13 +7,21 @@ import Team from './components/Team'
 function App() {
     const [players, updatePlayers] = useState(data.players);
     const teamNumber = data.teams;
-    const playersPerTeam = data.playersPerTeam;
-    let teams = [];
-    for (let i = 0; i < teamNumber; i++) {
-        teams[`team-${i}`] = {
-            'id' : `team-${i}`,
-            'name' : `Team-${i+1}`,
-            'playerIds' : [],
+    const playerIds = players.map((player) => player.id);
+    const teams = [];
+    for (let i = 0; i <= teamNumber; i++) {
+        if(i == 0){
+            teams[`team-${i}`] = {
+                'id': `team-${i}`,
+                'name': `Available players`,
+                'playerIds': playerIds
+            }
+        } else {
+            teams[`team-${i}`] = {
+                'id': `team-${i}`,
+                'name': `Team-${i + 1}`,
+                'playerIds': [],
+            }
         }
     }
 
