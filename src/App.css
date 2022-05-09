@@ -2,7 +2,7 @@
 .App-link {
   color: #61dafb;
 }
-
+.teamContainer{display:flex;flex-direction:row}
 #players {
   list-style: none;
   padding-left: 0;
@@ -13,10 +13,14 @@
   max-width:fit-content;
   min-width:25%;
   transition: background-color 0.2s ease-in-out;
+  margin-right:0.3rem;
+  display: flex;
+  flex-direction: column;
+  flex:1
 }
 #players.isDraggingOver{background-color: #d7f2d7}
 
-#players li {
+#players #player {
   display: flex;
   align-items: center;
   border: solid 2px #d0d0d0;
@@ -25,7 +29,7 @@
   margin-bottom: 1em;
   background-color: aliceblue;
 }
-#players li.dragging{background-color:rgba(176, 176, 189, 0.473)}
+#players #player.dragging{background-color:rgba(176, 176, 189, 0.473)}
 
 #players p {
   max-width: none;

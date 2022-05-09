@@ -65,5 +65,22 @@ const players = [
     },
     
 ];
+const playerIds = players.map((player) => player.id);
+const sq = [];
+for (let i = 0; i <= teams; i++) {
+    if (i === 0) {
+        sq[i] = {
+            'id': `team-${i}`,
+            'name': `Available players`,
+            'playerIds': playerIds
+        }
+    } else {
+        sq[i] = {
+            'id': `team-${i}`,
+            'name': `Team-${i}`,
+            'playerIds': [],
+        }
+    }
+}
 
-export default { teams, playersPerTeam, players}
+export default { teams, playersPerTeam, players, sq}

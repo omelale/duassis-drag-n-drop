@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useEffect, useState } from 'react';
 import { DragDropContext } from 'react-beautiful-dnd';
 import './App.css';
 import data from './constants/data';
@@ -6,25 +6,8 @@ import Team from './components/Team'
 
 function App() {
     const [players, updatePlayers] = useState(data.players);
-    const teamNumber = data.teams;
-    const playerIds = players.map((player) => player.id);
-    const teams = [];
-    for (let i = 0; i <= teamNumber; i++) {
-        if(i == 0){
-            teams[`team-${i}`] = {
-                'id': `team-${i}`,
-                'name': `Available players`,
-                'playerIds': playerIds
-            }
-        } else {
-            teams[`team-${i}`] = {
-                'id': `team-${i}`,
-                'name': `Team-${i + 1}`,
-                'playerIds': [],
-            }
-        }
-    }
-
+    const [teams, setTeams] = useState(data.sq);
+    const teamNumber = data.teams;    
     const handleOnDragEnd = (result) => {
         if (!result.destination) return;
 
@@ -39,10 +22,17 @@ function App() {
         <div className="App">
             <header className="App-header">
                 <h1>Drag and drop the player into the team you wish</h1>
-                <DragDropContext onDragEnd={handleOnDragEnd}>
-                    <h3>Available players</h3>
-                    <Team players={players}/>
-                </DragDropContext>
+                <div className="container teamContainer">
+                    <DragDropContext onDragEnd={handleOnDragEnd}>
+                        {/* <Team players={players} id="available"/> */}
+                        {
+                            teams.map(team => {
+                                const teamPlayers = team.playerIds.map(playerId => players.find(p => p.id === playerId));
+                                return <Team players={teamPlayers} id={team.id} name={team.name} />
+                            })
+                        }
+                    </DragDropContext>
+                </div>
             </header>
         </div>
     );

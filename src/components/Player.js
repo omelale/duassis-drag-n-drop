@@ -5,11 +5,11 @@ function Player(props) {
     return (
         <Draggable draggableId={props.id.toString()} index={props.index}>
             {(provided, snapshot) => (
-                <li ref={provided.innerRef} className={snapshot.isDragging ? 'dragging' : ''} {...provided.draggableProps} {...provided.dragHandleProps} >
+                <div id="player" ref={provided.innerRef} className={snapshot.isDragging ? 'dragging' : ''} {...provided.draggableProps} {...provided.dragHandleProps} >
                     <p>
                         {props.player.name + ' ' + props.player.lastName}
                     </p>
-                </li>
+                </div>
             )}
         </Draggable>
     )

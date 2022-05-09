@@ -5,14 +5,15 @@ import Player from './Player'
 
 function Team(props) {
     return (
-        <Droppable droppableId="players">
+        <Droppable droppableId={props.id} className="container">
             {(provided, snapshot) => (
-                <ul id="players" {...provided.droppableProps} ref={provided.innerRef} className={snapshot.isDraggingOver ? 'isDraggingOver' : ''} >
+                <div id="players" {...provided.droppableProps} ref={provided.innerRef} className={snapshot.isDraggingOver ? 'isDraggingOver' : ''} >
+                    <h3>{props.name}</h3>
                     {props.players.map((player, index) => {
                         return <Player key={player.id} player={player} id={player.id} index={index} />
                     })}
                     {provided.placeholder}
-                </ul>
+                </div>
             )}
         </Droppable>
     )
