@@ -2,7 +2,6 @@ import React from 'react'
 import { Draggable } from 'react-beautiful-dnd'
 
 function Player(props) {
-    // const { isDragging, ...rest } = props
     return (
         <Draggable draggableId={props.id.toString()} index={props.index}>
             {(provided, snapshot) => (
