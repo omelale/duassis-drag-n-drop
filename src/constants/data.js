@@ -1,6 +1,6 @@
 const teams = 2; 
 
-const playerPerTeam = 6;
+const playersPerTeam = 6;
 
 const players = [
     {
@@ -66,4 +66,4 @@ const players = [
     
 ];
 
-export default { teams, playerPerTeam, players}
+export default { teams, playersPerTeam, players}
