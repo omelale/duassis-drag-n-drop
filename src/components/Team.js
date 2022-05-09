@@ -5,7 +5,7 @@ import Player from './Player'
 
 function Team(props) {
     return (
-        <Droppable droppableId={props.id} className="container">
+        <Droppable droppableId={props.id.toString()} className="container">
             {(provided, snapshot) => (
                 <div id="players" {...provided.droppableProps} ref={provided.innerRef} className={snapshot.isDraggingOver ? 'isDraggingOver' : ''} >
                     <h3>{props.name}</h3>
