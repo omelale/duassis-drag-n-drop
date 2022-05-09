@@ -70,13 +70,13 @@ const sq = [];
 for (let i = 0; i <= teams; i++) {
     if (i === 0) {
         sq[i] = {
-            'id': `team-${i}`,
+            'id': i,
             'name': `Available players`,
             'playerIds': playerIds
         }
     } else {
         sq[i] = {
-            'id': `team-${i}`,
+            'id': i,
             'name': `Team-${i}`,
             'playerIds': [],
         }
