@@ -50,6 +50,30 @@ function App() {
             )
             return;
         }
+        const sourcePlayerIds = Array.from(start.playerIds);
+        sourcePlayerIds.splice(source.index, 1);
+        const sourceTeam = {
+            ...start,
+            playerIds: sourcePlayerIds,
+        };
+        const destinationPlayerIds = Array.from(finish.playerIds);
+        destinationPlayerIds.splice(parseInt(destination.index), 0, parseInt(draggableId));
+        const destinationTeam = {
+            ...finish,
+            playerIds: destinationPlayerIds,
+        };
+        console.log(sourceTeam,destinationTeam);
+        setTeams(
+            teams.map(team => {
+                if(team.id === sourceTeam.id){
+                    return sourceTeam;
+                } else if (team.id === destinationTeam.id){
+                    return destinationTeam;
+                }
+                return team;
+            })
+        );
+        return;
 
         // const items = Array.from(players);
         // const [reorderedItem] = items.splice(result.source.index, 1);
