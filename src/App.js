@@ -2,7 +2,8 @@ import React, { useEffect, useLayoutEffect, useState } from 'react';
 import { DragDropContext } from 'react-beautiful-dnd';
 import './App.css';
 import data from './constants/data';
-import Team from './components/Team'
+import Team from './components/Team';
+import Save from './components/Save';
 
 function App() {
     const teamNumber = data.teams;
@@ -115,11 +116,7 @@ function App() {
                     </DragDropContext>
                 </div>
                 {saveStatus &&
-                    (<div className="buttons">
-                        <h4>The formations are looking fine! Would you like to save these changes?</h4>
-                        <button className="btn btn-save">Save changes</button>
-                        <button className="btn btn-draft">Save draft</button>
-                    </div>)
+                    (<Save/>)
                 }
             </div>
         </div>
