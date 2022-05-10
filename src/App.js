@@ -25,13 +25,37 @@ function App() {
     }, [windowDimension])
     const teamNumber = data.teams;
     const handleOnDragEnd = (result) => {
-        if (!result.destination) return;
+        const { destination, source, draggableId } = result;
+        if (!destination) return;
+        if (
+            destination.droppableId === source.droppableId &&
+            destination.index === source.index
+        ) {
+            return;
+        }
+        const start = teams[source.droppableId];
+        const finish = teams[destination.droppableId];
+        if (start === finish) {
+            const newPlayerIds = Array.from(start.playerIds);
+            newPlayerIds.splice(source.index, 1);
+            newPlayerIds.splice(parseInt(destination.index), 0, parseInt(draggableId));
+            const newTeam = {
+                ...start,
+                playerIds: newPlayerIds,
+            };
+            setTeams(
+                teams.map((team) => {
+                    return team.id === newTeam.id ? newTeam : team;
+                })
+            )
+            return;
+        }
 
-        const items = Array.from(players);
-        const [reorderedItem] = items.splice(result.source.index, 1);
-        items.splice(result.destination.index, 0, reorderedItem);
+        // const items = Array.from(players);
+        // const [reorderedItem] = items.splice(result.source.index, 1);
+        // items.splice(result.destination.index, 0, reorderedItem);
 
-        updatePlayers(items);
+        // updatePlayers(items);
     }
 
     return (
@@ -43,7 +67,7 @@ function App() {
                         {
                             teams.map(team => {
                                 const teamPlayers = team.playerIds.map(playerId => players.find(p => p.id === playerId));
-                                return <Team key={team.id} players={teamPlayers} id={team.id} name={team.name} width={windowDimension.width}/>
+                                return <Team key={team.id} players={teamPlayers} id={team.id} name={team.name} width={windowDimension.width} />
                             })
                         }
                     </DragDropContext>
