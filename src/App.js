@@ -11,10 +11,6 @@ function App() {
     const playersPerTeam = players.length / teamNumber;
     const [teams, setTeams] = useState(data.sq);
     const [saveStatus, setSaveStatus] = useState(false);
-    const [windowDimension, setWindowDimension] = useState({
-        width: window.innerWidth,
-        height: window.innerHeight,
-    })
     const checkSaveStatus = () => {
         if (Number.isInteger(playersPerTeam)){
             let update = true;
@@ -82,18 +78,6 @@ function App() {
         );
         return;
     }
-    const detectSize = () => {
-        setWindowDimension({
-            width: window.innerWidth,
-            height: window.innerHeight,
-        })
-    }
-    useEffect(() => {
-        window.addEventListener('resize', detectSize)
-        return () => {
-            window.removeEventListener('resize', detectSize)
-        }
-    }, [windowDimension])
 
     useLayoutEffect(()=>{
         checkSaveStatus()
@@ -110,7 +94,7 @@ function App() {
                         {
                             teams.map(team => {
                                 const teamPlayers = team.playerIds.map(playerId => players.find(p => p.id === playerId));
-                                return <Team key={team.id} players={teamPlayers} id={team.id} name={team.name} width={windowDimension.width} />
+                                return <Team key={team.id} players={teamPlayers} id={team.id} name={team.name}/>
                             })
                         }
                     </DragDropContext>
