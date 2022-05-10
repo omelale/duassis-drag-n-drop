@@ -62,24 +62,17 @@ function App() {
             ...finish,
             playerIds: destinationPlayerIds,
         };
-        console.log(sourceTeam,destinationTeam);
         setTeams(
             teams.map(team => {
-                if(team.id === sourceTeam.id){
+                if (team.id === sourceTeam.id) {
                     return sourceTeam;
-                } else if (team.id === destinationTeam.id){
+                } else if (team.id === destinationTeam.id) {
                     return destinationTeam;
                 }
                 return team;
             })
         );
         return;
-
-        // const items = Array.from(players);
-        // const [reorderedItem] = items.splice(result.source.index, 1);
-        // items.splice(result.destination.index, 0, reorderedItem);
-
-        // updatePlayers(items);
     }
 
     return (
