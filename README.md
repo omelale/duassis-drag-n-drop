@@ -1,5 +1,7 @@
 #  Drag and drop functionality for the Duassis app 
 
+<img src="https://i.ibb.co/vwZ4t0N/ezgif-com-gif-maker.gif" width="40" height="40" />
+
 ## This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
 
 In the project directory, you can run:
