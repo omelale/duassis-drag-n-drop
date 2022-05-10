@@ -1,29 +1,35 @@
-import React, { useEffect, useState } from 'react';
+import React, { useEffect, useLayoutEffect, useState } from 'react';
 import { DragDropContext } from 'react-beautiful-dnd';
 import './App.css';
 import data from './constants/data';
 import Team from './components/Team'
 
 function App() {
-    const [players, updatePlayers] = useState(data.players);
+    const teamNumber = data.teams;
+    const players = data.players;
+    const playersPerTeam = players.length / teamNumber;
     const [teams, setTeams] = useState(data.sq);
+    const [saveStatus, setSaveStatus] = useState(false);
     const [windowDimension, setWindowDimension] = useState({
         width: window.innerWidth,
         height: window.innerHeight,
     })
-    const detectSize = () => {
-        setWindowDimension({
-            width: window.innerWidth,
-            height: window.innerHeight,
-        })
+    const checkSaveStatus = () => {
+        if (Number.isInteger(playersPerTeam)){
+            let update = true;
+            for (let i = 1; i < teams.length; i++){
+                if(teams[i].playerIds.length !== playersPerTeam){
+                    update = false;
+                }
+            }
+            if (update){
+                setSaveStatus(true);
+            } else {
+                setSaveStatus(false);
+            }
+        } 
+        //TODO ca me bo nese nuk jane numra te pjesetueshem per skuadra ose lojtare?
     }
-    useEffect(() => {
-        window.addEventListener('resize', detectSize)
-        return () => {
-            window.removeEventListener('resize', detectSize)
-        }
-    }, [windowDimension])
-    const teamNumber = data.teams;
     const handleOnDragEnd = (result) => {
         const { destination, source, draggableId } = result;
         if (!destination) return;
@@ -31,6 +37,7 @@ function App() {
             destination.droppableId === source.droppableId &&
             destination.index === source.index
         ) {
+            checkSaveStatus()
             return;
         }
         const start = teams[source.droppableId];
@@ -74,6 +81,22 @@ function App() {
         );
         return;
     }
+    const detectSize = () => {
+        setWindowDimension({
+            width: window.innerWidth,
+            height: window.innerHeight,
+        })
+    }
+    useEffect(() => {
+        window.addEventListener('resize', detectSize)
+        return () => {
+            window.removeEventListener('resize', detectSize)
+        }
+    }, [windowDimension])
+
+    useLayoutEffect(()=>{
+        checkSaveStatus()
+    },[teams])
 
     return (
         <div className="App">
@@ -91,11 +114,13 @@ function App() {
                         }
                     </DragDropContext>
                 </div>
-                <div className="buttons">
-                    <h4>The formations are looking fine! Would you like to save these changes?</h4>
-                    <button>Save changes</button>
-                    <button>Save draft</button>
-                </div>
+                {saveStatus &&
+                    (<div className="buttons">
+                        <h4>The formations are looking fine! Would you like to save these changes?</h4>
+                        <button className="btn btn-save">Save changes</button>
+                        <button className="btn btn-draft">Save draft</button>
+                    </div>)
+                }
             </div>
         </div>
     );
