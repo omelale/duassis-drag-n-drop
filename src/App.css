@@ -26,7 +26,8 @@
   flex-direction: column;
 }
 @media only screen and (max-width: 500px) {
-  #players{min-width:50%}
+  .App{padding:0.4rem}
+  #players{min-width:23.5%;padding:0.5rem 0.2rem}
 }
 
 #player-container{
