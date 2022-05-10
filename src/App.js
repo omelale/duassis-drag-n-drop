@@ -8,6 +8,7 @@ import Save from './components/Save';
 function App() {
     const teamNumber = data.teams;
     const players = data.players;
+    const roles = data.roles;
     const playersPerTeam = players.length / teamNumber;
     const [teams, setTeams] = useState(data.sq);
     const [saveStatus, setSaveStatus] = useState(false);
@@ -29,6 +30,7 @@ function App() {
     }
     const handleOnDragEnd = (result) => {
         const { destination, source, draggableId } = result;
+        console.log(result);
         if (!destination) return;
         if (
             destination.droppableId === source.droppableId &&
@@ -94,7 +96,7 @@ function App() {
                         {
                             teams.map(team => {
                                 const teamPlayers = team.playerIds.map(playerId => players.find(p => p.id === playerId));
-                                return <Team key={team.id} players={teamPlayers} id={team.id} name={team.name}/>
+                                return <Team key={team.id} players={teamPlayers} id={team.id} name={team.name} roles={roles}/>
                             })
                         }
                     </DragDropContext>

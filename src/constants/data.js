@@ -65,6 +65,34 @@ const players = [
     },
     
 ];
+
+const roles = [
+    {
+        id : 'gk',
+        name: 'Goalkeeper'
+    },
+    {
+        id : 'rd',
+        name: 'Right Defender'
+    },
+    {
+        id : 'ld',
+        name: 'Left Defender'
+    },
+    {
+        id : 'cm',
+        name: 'Central Midfielder'
+    },
+    {
+        id : 'La',
+        name: 'Left Attacker'
+    },
+    {
+        id : 'Ra',
+        name: 'Right Attacker'
+    },
+]
+
 const playerIds = players.map((player) => player.id);
 const sq = [];
 for (let i = 0; i <= teams; i++) {
@@ -83,4 +111,4 @@ for (let i = 0; i <= teams; i++) {
     }
 }
 
-export default { teams, playersPerTeam, players, sq}
+export default { teams, playersPerTeam, players, sq, roles}
