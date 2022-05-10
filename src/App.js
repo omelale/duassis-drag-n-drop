@@ -1,4 +1,4 @@
-import React, { useEffect, useLayoutEffect, useState } from 'react';
+import React, { useLayoutEffect, useState } from 'react';
 import { DragDropContext } from 'react-beautiful-dnd';
 import './App.css';
 import data from './constants/data';
