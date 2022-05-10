@@ -5,9 +5,9 @@ import Player from './Player'
 
 function Team(props) {
     return (
-        <div className="container" id="players">
+        <div id="players">
             <h3>{props.name}</h3>
-            <Droppable droppableId={props.id.toString()} className="container">
+            <Droppable droppableId={props.id.toString()}>
                 {(provided, snapshot) => (
                     <div id="player-container" {...provided.droppableProps} ref={provided.innerRef} className={snapshot.isDraggingOver ? 'isDraggingOver' : ''} >
                         {props.players.map((player, index) => {

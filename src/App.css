@@ -4,9 +4,11 @@
 .App-link {
   color: #61dafb;
 }
+.container{margin-left:auto;margin-right:auto}
 .teamContainer {
   display: flex;
   flex-direction: row;
+  margin-left:auto;margin-right:auto
 }
 #players {
   padding-left: 0;
@@ -14,7 +16,6 @@
   padding: 1rem;
   border-radius: 7px;
   border: 2px solid #d0d0d0;
-  max-width: fit-content;
   min-width: 25%;
   transition: background-color 0.2s ease-in-out;
   margin-right: 0.3rem;

@@ -79,7 +79,9 @@ function App() {
         <div className="App">
             <header className="App-header">
                 <h1>Drag and drop the player into the team you wish</h1>
-                <div className='container teamContainer' >
+            </header>
+            <div className="container">
+                <div className='teamContainer' >
                     <DragDropContext onDragEnd={handleOnDragEnd} >
                         {
                             teams.map(team => {
@@ -89,7 +91,12 @@ function App() {
                         }
                     </DragDropContext>
                 </div>
-            </header>
+                <div className="buttons">
+                    <h4>The formations are looking fine! Would you like to save these changes?</h4>
+                    <button>Save changes</button>
+                    <button>Save draft</button>
+                </div>
+            </div>
         </div>
     );
 }
