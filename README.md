@@ -2,6 +2,8 @@
 
 <img src="https://i.ibb.co/vwZ4t0N/ezgif-com-gif-maker.gif" />
 
+[See it live](https://duassis-drag-n-drop.pages.dev)
+
 ## This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
 
 In the project directory, you can run:
