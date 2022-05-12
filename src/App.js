@@ -4,6 +4,7 @@ import './App.css';
 import data from './constants/data';
 import Team from './components/Team';
 import Save from './components/Save';
+import Field from './components/Field';
 
 function App() {
     const teamNumber = data.teams;
@@ -98,6 +99,7 @@ function App() {
                             })
                         }
                     </DragDropContext>
+                    <Field/>
                 </div>
                 {saveStatus &&
                     (<Save/>)

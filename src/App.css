@@ -14,10 +14,10 @@
 #players {
   padding-left: 0;
   background-color: #fff;
-  padding: 1rem;
+  padding: 1rem .5rem;
   border-radius: 7px;
   border: 2px solid #d0d0d0;
-  min-width: 17%;
+  min-width: 13%;
   max-width:220px;
   transition: background-color 0.2s ease-in-out;
   margin-right: 0.3rem;
@@ -44,7 +44,7 @@
   border: solid 2px #d0d0d0;
   border-radius: 0.2em;
   padding: 0.5em 0.8em 0.5em 0.5em;
-  margin-bottom: 1em;
+  margin-bottom: .22em;
   background-color: aliceblue;
 }
 #players #player.dragging {
@@ -77,3 +77,4 @@
 .btn-save:hover{background-color: #3eaf34;}
 .btn-draft{background-color: #281cb2;border:1px solid #050e41;}
 .btn-draft:hover{background-color: #2f2786;}
+.Field{width:100%}
