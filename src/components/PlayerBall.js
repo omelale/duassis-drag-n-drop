@@ -1,8 +1,9 @@
 import React from 'react'
 
-function PlayerBall() {
+function PlayerBall(props) {
+  console.log(props);
   return (
-    <div className="player-ball">{text.substring(player.name,0,1)}</div>
+    <div className="player-ball">{props.player.name}</div>
   )
 }
 

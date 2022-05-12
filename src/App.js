@@ -13,19 +13,19 @@ function App() {
     const [teams, setTeams] = useState(data.sq);
     const [saveStatus, setSaveStatus] = useState(false);
     const checkSaveStatus = () => {
-        if (Number.isInteger(playersPerTeam)){
+        if (Number.isInteger(playersPerTeam)) {
             let update = true;
-            for (let i = 1; i < teams.length; i++){
-                if(teams[i].playerIds.length !== playersPerTeam){
+            for (let i = 1; i < teams.length; i++) {
+                if (teams[i].playerIds.length !== playersPerTeam) {
                     update = false;
                 }
             }
-            if (update){
+            if (update) {
                 setSaveStatus(true);
             } else {
                 setSaveStatus(false);
             }
-        } 
+        }
         //TODO ca me bo nese nuk jane numra te pjesetueshem per skuadra ose lojtare?
     }
     const handleOnDragEnd = (result) => {
@@ -80,9 +80,9 @@ function App() {
         return;
     }
 
-    useLayoutEffect(()=>{
+    useLayoutEffect(() => {
         checkSaveStatus()
-    },[teams])
+    }, [teams])
 
     return (
         <div className="App">
@@ -95,14 +95,14 @@ function App() {
                         {
                             teams.map(team => {
                                 const teamPlayers = team.playerIds.map(playerId => players.find(p => p.id === playerId));
-                                return <Team key={team.id} players={teamPlayers} id={team.id} name={team.name}/>
+                                return <Team key={team.id} players={teamPlayers} id={team.id} name={team.name} />
                             })
                         }
                     </DragDropContext>
-                    <Field teams={teams} roles={data.roles}/>
+                    <Field teams={teams} roles={data.roles} players={data.players} />
                 </div>
                 {saveStatus &&
-                    (<Save/>)
+                    (<Save />)
                 }
             </div>
         </div>

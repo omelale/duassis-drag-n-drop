@@ -6,7 +6,7 @@ function Field(props) {
     return (
         <div className="field-container">
             {teams.map(team => {
-               return <Teamfield team={team} key={team.id}/>
+                return <Teamfield team={team} key={team.id} players={props.players} roles={props.roles} />
             })}
         </div>
     )
