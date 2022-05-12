@@ -83,11 +83,11 @@ const roles = [
         name: 'Central Midfielder'
     },
     {
-        id: 'La',
+        id: 'la',
         name: 'Left Attacker'
     },
     {
-        id: 'Ra',
+        id: 'ra',
         name: 'Right Attacker'
     },
 ];
