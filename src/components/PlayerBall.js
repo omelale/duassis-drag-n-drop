@@ -2,7 +2,7 @@ import React from 'react'
 
 function PlayerBall() {
   return (
-    <div>PlayerBall</div>
+    <div className="player-ball">{text.substring(player.name,0,1)}</div>
   )
 }
 

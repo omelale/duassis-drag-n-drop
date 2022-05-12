@@ -99,7 +99,7 @@ function App() {
                             })
                         }
                     </DragDropContext>
-                    <Field teams={teams}/>
+                    <Field teams={teams} roles={data.roles}/>
                 </div>
                 {saveStatus &&
                     (<Save/>)
