@@ -28,6 +28,7 @@
 @media only screen and (max-width: 500px) {
   .App{padding:0.4rem}
   #players{min-width:23.5%;padding:0.5rem 0.2rem}
+  .Field{display:none}
 }
 
 #player-container{
